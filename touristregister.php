@@ -15,16 +15,14 @@ function isExist($username){
 }
 $check = isExist($username);
 if($check){
-    Response::json(0,"username exists","");
+    echo "username exists";
 }else{
    $sql_insert = "insert into user(userAccount,password,tel) values('".$username."','".$password."','".$tel."')";
    $rs = mysql_query($sql_insert);
    if($rs){
-       //echo "register successful";
-       Response::json(1,"register successful","");
-   }else{
-       //echo "register fail: ".mysql_error();
-       Response::json(2,"register fail: ".mysql_error(),"");
+       echo "register successful";
+   }else {
+       echo "register fail: " . mysql_error();
    }
 }
 mysql_close($conn);
