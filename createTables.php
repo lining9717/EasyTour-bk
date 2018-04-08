@@ -54,16 +54,15 @@ if ($conn->query($guider_table_sql) === TRUE) {
 //create order table
 $order_table_sql = "create table orders(
 orderID int(11) unsigned AUTO_INCREMENT primary key,
-userID int(11) unsigned not null,
-guiderID int(11) unsigned not null,
-begin_day date not null,
-end_day date not null,
+userAccount varchar(10),
+guiderAccount varchar(10),
+begin_day varchar(50) not null,
+end_day varchar(50) not null,
 place varchar(20) not null,
-discripts varchar(50) not null,
+place_discripts varchar(50) not null,
+time_discripts varchar(50) not null,
 numofPeople int not null,
-isDone bit not null,
-foreign key(userID) references user(userID),
-foreign key(guiderID) references guider(guiderID)
+isDone varchar(10) not null
 )";
 
 if ($conn->query($order_table_sql) === TRUE) {
