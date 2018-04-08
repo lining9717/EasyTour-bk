@@ -24,4 +24,4 @@ if(is_array($rs)>0){
 }else{
     Response::json(0,"Login fail".mysql_error(),"");
 }
-?>
+mysql_close($conn);

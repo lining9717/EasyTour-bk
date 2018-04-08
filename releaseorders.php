@@ -26,4 +26,5 @@ if($rs){
 }else{
     echo "release fail";
 }
+mysql_close($conn);
 
