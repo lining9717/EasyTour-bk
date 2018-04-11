@@ -2,11 +2,15 @@
 /**
  * Created by PhpStorm.
  * User: lining
- * Date: 2018/4/8
- * Time: 15:30
+ * Date: 2018/4/11
+ * Time: 19:55
  */
-require_once('connect.php');
-$sql = "select * from orders where isDone = 'No' and guiderAccount is null";
+
+require_once ('connect.php');
+
+$guiderAccount = str_replace(" ","",$_POST['guidername']);
+
+$sql = "select * from orders where guideAccount = '".$guiderAccount."'";
 $query = mysql_query($sql);
 if($query){
     $arr = array();
