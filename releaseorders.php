@@ -9,9 +9,9 @@
 require_once ('connect.php');
 
 $username = str_replace(" ","",$_POST['username']);
-$place = str_replace(" ","",$_POST['place']);
-$place_description = str_replace(" ","",$_POST['place_description']);
-$time_description = str_replace(" ","",$_POST['time_description']);
+$place = $_POST['place'];
+$place_description = $_POST['place_description'];
+$time_description = $_POST['time_description'];
 $start_time = str_replace(" ","",$_POST['start_time']);
 $end_time = str_replace(" ","",$_POST['end_time']);
 $number_of_people = str_replace(" ","",$_POST['number']);
