@@ -25,7 +25,7 @@ if($_FILES["file"]["error"]>0){
         if($checkUserName){
             echo "username exists";
         }else{
-            $sql_insert = "insert into guider(guiderAccount,password,tel,name,photo,IDnumber) values('".$username."','".$password."','".$tel."','".$realname."','".$imgpath."','".$ID."')";
+            $sql_insert = "insert into guider(guiderAccount,password,tel,name,introduce,photo,place,IDnumber) values('".$username."','".$password."','".$tel."','".$realname."','Love To Travel','".$imgpath."','No service area has been set.','".$ID."')";
             $rs = mysql_query($sql_insert);
             if($rs){
                 echo "register successful";

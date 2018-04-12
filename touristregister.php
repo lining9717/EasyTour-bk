@@ -25,7 +25,7 @@ if($_FILES["file"]["error"]>0){
         if ($check) {
             echo "username exists";
         } else {
-            $sql_insert = "insert into user(userAccount,password,tel,photo) values('" . $username . "','" . $password . "','" . $tel . "','".$imgpath."')";
+            $sql_insert = "insert into user(userAccount,password,introduce,tel,photo) values('" . $username . "','" . $password . "','Love To Travel','" . $tel . "','".$imgpath."')";
             $rs = mysql_query($sql_insert);
             if ($rs) {
                 echo "register success";
