@@ -16,11 +16,11 @@ function isExist($username){
 }
 
 if($_FILES["file"]["error"]>0){
-    echo "register fail : ". $_FILES["file"]["error"];
+    echo "register fail111111111111 : ". $_FILES["file"]["error"];
 }else {
     $newfile= time().rand(1,1000).substr($_FILES["file"]["name"],strrpos($_FILES["file"]["name"],"."));
-    $imgpath= "http://118.89.18.136/EasyTour/EasyTour-bk/img/".$newfile;
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], "img/".$newfile)) {
+    $imgpath= "http://118.89.18.136/EasyTour/img/".$newfile;
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], $imgpath)) {
         $check = isExist($username);
         if ($check) {
             echo "username exists";
@@ -28,14 +28,14 @@ if($_FILES["file"]["error"]>0){
             $sql_insert = "insert into user(userAccount,password,tel,photo) values('" . $username . "','" . $password . "','" . $tel . "','".$imgpath."')";
             $rs = mysql_query($sql_insert);
             if ($rs) {
-                echo "register success";
+                echo "register success111111111111111111";
             } else {
-                echo "register fail: " . mysql_error();
+                echo "register fail: 22222222222222222222222" . mysql_error();
             }
         }
     }
     else{
-        echo "register fail: " . $_FILES["file"]["error"];
+        echo "register fail image error: " . $_FILES["file"]["error"];
     }
 }
 mysql_close($conn);
