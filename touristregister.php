@@ -16,10 +16,11 @@ function isExist($username){
 }
 
 if($_FILES["file"]["error"]>0){
-    echo "register fail: ". $_FILES["file"]["error"];
+    echo "register fail : ". $_FILES["file"]["error"];
 }else {
-    $imgpath = "http://118.89.18.136/EasyTour/img/" . $_FILES["file"]["name"];
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], $imgpath)) {
+    $newfile= time().rand(1,1000).substr($_FILES["file"]["name"],strrpos($_FILES["file"]["name"],"."));
+    $imgpath= "/var/www/html/EasyTour/img/".$newfile;
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "/var/www/html/EasyTour/img/".$newfile)) {
         $check = isExist($username);
         if ($check) {
             echo "username exists";
