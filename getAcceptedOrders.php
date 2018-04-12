@@ -10,7 +10,7 @@ require_once ('connect.php');
 
 $guiderAccount = str_replace(" ","",$_POST['guidername']);
 
-$sql = "select * from orders where guideAccount = '".$guiderAccount."'";
+$sql = "select * from orders where guiderAccount = '".$guiderAccount."'";
 $query = mysql_query($sql);
 if($query){
     $arr = array();
