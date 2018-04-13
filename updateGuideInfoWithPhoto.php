@@ -29,7 +29,7 @@ $query_get = mysql_query($sql_get);
 $rs = mysql_fetch_array($query_get);
 $password = $rs['password'];
 $realname = $rs['name'];
-$star = $rs['star'];
+$star = (int)$rs['star'];
 $ID = $rs['IDnumber'];
 
 $sql_delete = "delete from guider where guiderAccount = '".$oldusername."'";
@@ -45,7 +45,7 @@ if(mysql_query($sql_delete)) {
                 Response::json(0,"username exists","");
             } else {
                 $sql_insert = "insert into guider(guiderAccount,password,tel,name,introduce,photo,place,IDnumber,star) ".
-                    "values('".$username."','".$password."','".$tel."','".$realname."','".$introduce."','".$imgpath."','".$place."','".$ID."','".$star."')";
+                    "values('".$username."','".$password."','".$tel."','".$realname."','".$introduce."','".$imgpath."','".$place."','".$ID."',".$star.")";
                 $rs = mysql_query($sql_insert);
                 if ($rs) {
                     Response::json(1,"update success",$imgpath);

@@ -40,8 +40,7 @@ if (mysql_query($sql_delete)) {
     if ($check) {
         echo "username exists";
     } else {
-        $sql_insert = "insert into guider(guiderAccount,password,tel,name,introduce,photo,place,IDnumber,star) " .
-            "values('" . $username . "','" . $password . "','" . $tel . "','" . $realname . "','" . $introduce . "','" . $photo_path . "','" . $place . "','" . $ID . "','" . $star . "')";
+        $sql_insert = "insert into guider(guiderAccount,password,tel,name,introduce,photo,place,IDnumber,star) values('" . $username . "','" . $password . "','" . $tel . "','" . $realname . "','" . $introduce . "','" . $photo_path . "','" . $place . "','" . $ID . "',".$star.")";
         $rs = mysql_query($sql_insert);
         if ($rs) {
             echo "update success";
